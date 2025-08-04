@@ -1,0 +1,80 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Hackathon_Assignment
+{
+    internal class Word_Frequency
+    {
+        private static void CountWordFrequency(string str)
+        {
+            List<string> words = new List<string>();
+            string Word = "";
+            foreach (char ch in str)
+            {
+                if ((ch >= 'a' && ch <= 'z') || (ch >= 'A' && ch <= 'Z'))
+                {
+                    Word += char.ToLower(ch);
+                }
+                else if (Word.Length > 0)
+                {
+                    words.Add(Word);
+                    Word = "";
+                }
+            }
+            if (Word.Length > 0)
+            {
+                words.Add(Word);
+            }
+            Dictionary<string, int> dict = new Dictionary<string, int>();
+            foreach (string word in words)
+            {
+                if (dict.ContainsKey(word))
+                {
+                    dict[word]++;
+                }
+                else
+                {
+                    dict[word] = 1;
+                }
+            }
+            
+            List<KeyValuePair<string, int>> list = new List<KeyValuePair<string, int>>();
+            foreach (var val in dict)
+            {
+                list.Add(val);
+            }
+            list.Sort((item1, item2) =>
+            {
+                if (item1.Value != item2.Value)
+                {
+                    return item2.Value.CompareTo(item1.Value);
+                }
+                else
+                {
+                    return item2.Key.CompareTo(item1.Key);
+                }
+            });
+           
+
+            foreach (var item in list)
+            {
+                Console.WriteLine($"{item.Value} {item.Key}");
+            }
+
+           
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter the Sentence");
+            string str = Console.ReadLine();
+            CountWordFrequency(str);
+        }
+
+
+
+
+    }
+}
