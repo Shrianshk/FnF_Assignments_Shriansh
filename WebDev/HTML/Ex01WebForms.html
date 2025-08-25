@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            background: #f4f6fa;
+            font-family: Arial, sans-serif;
+        }
+        article {
+            max-width: 450px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 24px 32px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        h1 {
+            text-align: center;
+            color: #2a4d69;
+        }
+        hr {
+            margin-bottom: 20px;
+        }
+        p {
+            margin: 16px 0;
+        }
+        input[type="text"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-top: 6px;
+            border: 1px solid #bfc9d1;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 1em;
+        }
+        textarea {
+            resize: vertical;
+        }
+        input[type="radio"] {
+            margin-left: 12px;
+            margin-right: 4px;
+        }
+        input[type="submit"],
+        input[type="reset"] {
+            background: #2a4d69;
+            color: #fff;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 4px;
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+        input[type="submit"]:hover,
+        input[type="reset"]:hover {
+            background: #4b86b4;
+        }
+        label {
+            margin-right: 8px;
+        }
+    </style>
+    <script>
+        function onsaverecord(e) {
+            e.preventDefault(); // Prevent form submission
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("name").value ;
+            const year = document.getElementById("year").value;
+            const department = document.getElementById("department").value;
+          
+            const summary = `Name: ${name}\nEmail: ${email}\nYear of Study: ${year}\nDepartment: ${department}`;
+            alert(summary);
+            const formdata = {
+            name,
+            email,
+            year,
+            department
+        };
+
+        localStorage.setItem("feedbackForm", JSON.stringify(formdata));
+        alert("Feedback submitted and saved to local storage!");
+        
+    }
+        
+    </script>
+</head>
+<body>
+    <article>
+        <form action="">
+            <h1>College Feedback Form</h1>
+            <hr>
+            <p>
+                Enter the Name : <input type="text" required placeholder="Enter your name" name="name"id="name"> 
+            </p>
+            <p>
+                Enter the Email : <input type="email" required placeholder="Enter your email" name="email" id="email">
+            </p>
+            <p>
+                Year of Study:
+                <select name="year" required id="year">
+                    <option value="" disabled selected>Select your year</option>
+                    <option value="1">1st Year</option>
+                    <option value="2">2nd Year</option>
+                    <option value="3">3rd Year</option>
+                    <option value="4">4th Year</option>
+                </select>
+            </p>
+            <p>
+                Department of Study:
+                <select name="department" required id="department">
+                    <option value="" disabled selected>Select your department</option>
+                    <option value="cs">Computer Science</option>
+                    <option value="it">Information Technology</option>
+                    <option value="ee">Electrical Engineering</option>
+                    <option value="me">Mechanical Engineering</option>
+                </select>
+            </p>
+            <p>How is the way of the teaching of Faculty :   
+                <span style="display: inline-flex; gap: 10px;">
+                    <label>Excellent<input type="radio" name="teaching" value="excellent"></label>
+                    <label>Good<input type="radio" name="teaching" value="good"></label>
+                    <label>Average<input type="radio" name="teaching" value="average"></label>
+                    <label>Poor<input type="radio" name="teaching" value="poor"></label>
+                </span>
+            </p>
+            <p>
+                Enter your Custom Feedback :
+                <textarea name="feedback" cols="30" rows="10" placeholder="Enter your feedback here" required></textarea>
+            </p>
+            <p>
+                <input type="submit" value="Submit" onclick="onsaverecord(event)" id="submit">
+                <input type="reset" value="Reset">
+            </p>
+        </form>
+    </article>
+</body>
+</html>
