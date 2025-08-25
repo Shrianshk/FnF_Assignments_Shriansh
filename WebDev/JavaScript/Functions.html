@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //3 ways to create a function in Js
+        //named function:
+        function helloworld(){
+            console.log("Hello World");
+        }
+        function functionwithargs(count,stringdata){
+            for(index =0 ;index<count ;index++){
+                console.log(stringdata);
+            }
+        }
+        helloworld();
+        functionwithargs(10,"Hello");
+
+
+        //Functions that can be represented ad variables and called . They are also called as anonmyous methods,functions with no name but refered by the varable to which it is assigned to...
+        const addFunc = function(v1,v2){
+            return v1+v2;
+        }
+        console.log("The added value is " + addFunc(12,13));
+
+        /////Lambda Function ////////////
+        const  multFunc = (v1,v2) =>v1*v2; // sjhould nver return the value in here
+        const square = (v1) =>multFunc(v1,v1);
+        console.log(`The square of 12 is : ${square(12)}`);
+    </script>
+</body>
+</html>

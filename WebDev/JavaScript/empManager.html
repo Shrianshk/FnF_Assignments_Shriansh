@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Manager</title>
+    <!-- <script src="./empManager.js"></script> -->
+    <script src="./htmlhelper.js"></script>
+    <link rel="stylesheet"  type="text/css" href="./empManager.css">
+    <script>
+    class Employee{  
+    constructor(id,name,address,salary){
+        this.id=id;
+        this.name=name;
+        this.address=address;
+        this.salary=salary;
+    }
+    }
+    class EmployeeRepo{
+    empList=[];// create blank array
+
+    addEmp =(emp)=>this.empList=[...this.empList,emp];
+
+    removeEmp=(id)=>this.empList=this.empList.filter(emp =>emp.id!=id);
+    // removeEmp=(id)=>{
+    //     const index= this.empList.findIndex(e=>e.id=id);
+    //     if(index>=0){
+    //         this.empList.splice(index,1);
+    //     }
+    // }
+    
+    updateEmp = (emp)=>{
+        const index= this.empList.findIndex(e=>e.id=emp.id);
+        if(index>=0){
+            this.empList.splice(index,1,emp);
+        }
+    }
+
+    getall = ()=>this.empList;
+    getEmp =(id)=>this.empList.find((e)=>e.id==id);
+
+}
+        const mgr = new EmployeeRepo();
+        
+        function addRecord(){
+            const id = finder("empId").value;
+            const name= finder("empname").value;
+            const address = finder("empAddress").value;
+            const salary = finder("empSalary").value;
+            const emp= new Employee(id,name,address,salary);
+            mgr.addEmp(emp);
+            alert("Employee Added Successfully");
+            let d1 = finder("display");
+            d1.innerHTML = JSON.stringify(mgr.getall());
+            
+;
+
+            
+        }function mapEvents(){
+            var savebtn = document.querySelector("button");
+            savebtn.addEventListener("click",()=>addRecord())
+        }
+        window.addEventListener("load",mapEvents)
+    </script>
+</head>
+<body>
+    <h1>Employee Management Software</h1>
+    <hr>
+    <div>
+        <nav>
+            <a href="#">View All</a>
+            <a href="#">Add new</a>
+        </nav>
+        <div>
+            <h2>Table of Employees</h2>
+            <hr>
+            <table></table>
+             <div id="display"></div>
+        </div>
+        <div></div>
+        <div>
+            <h2>Employee Details</h2>
+            <hr>
+            <p><input type="text" id="empId" placeholder="Employee Id"></p>
+            <p><input type="text" name="" id="empname" placeholder="Employee Name"></p>
+            <p><input type="text" name="" id="empAddress" placeholder="Employee Address"></p>
+            <p><input type="number" name="" id="empSalary" placeholder="Employee salary"></p>
+            <p>
+                <button>Add Record</button>
+                <button>Update Record</button>
+            </p>
+        </div>
+        <div id="display"></div>
+    </div>
+</body>
+</html>

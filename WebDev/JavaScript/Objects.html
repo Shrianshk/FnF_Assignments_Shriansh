@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //Singleton objects in Js allows to create objects directly without a need to define it.
+        const emp ={
+            empId : 123,
+            empName :"Pralhad",
+            empAddress : "Vaikunta"
+        }//an object is internally adictionary in Js
+
+        emp.empSalary =50000; // adding new property to object...
+        // console.log(typeof(emp));
+        //display properties of object
+        console.log(emp);
+        for (key in emp){
+            console.log(`the propertyname is : ${key} and value is : ${emp[key]}`);
+        }
+        const temp =emp;
+        temp.empAddress="Mysore";
+        console.log(emp.empAddress); // Reflects on all the objects
+
+
+        const employee = function(id,name,address){
+            this.EmpId =id;
+            this.EmpName = name;
+            this.EmpAddress = address;
+        }
+        const e1 = new employee(12,"Hari","Shirsagar");
+        console.log(`Mr/Ms. ${e1.EmpName} lives in ${e1.EmpAddress} ad his id is ${e1.EmpId}`);
+        const e2 = new employee(e1.EmpId,e1.EmpAddress,e1.EmpName);
+        e2.EmpAddress = "universe";
+        console.log(`First guys location is ${e1.EmpAddress} and second guys location is ${e2.EmpAddress}`);
+
+        ////////////////// ES6 syntax for creating classes and objects//////////////////
+        class Customer{
+            constructor(id,name,address,billamount){
+                this.id=id;
+                this.name=name;
+                this.address=address;
+                this.billamount=billamount;
+            }
+
+            display(){
+                console.log(`${this.name} has bill amount of ${this.billamount} at address ${this.address}`);
+            }
+            addbillamount =(amount) =>this.billamount +=amount;
+        }
+        const cst =new Customer(11,"Tukaram","maharashtra",20000);
+        cst.display();
+        cst.addbillamount(2000);
+        cst.display();
+    </script>
+</body>
+</html>
