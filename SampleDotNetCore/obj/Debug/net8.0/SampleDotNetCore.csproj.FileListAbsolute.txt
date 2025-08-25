@@ -136,3 +136,4 @@ C:\Users\6152777\Desktop\Visual Studio Start\DotNetCore\SampleDotNetCore\SampleD
 C:\Users\6152777\Desktop\Visual Studio Start\DotNetCore\SampleDotNetCore\SampleDotNetCore\bin\Debug\net8.0\SampleDotNetCore.pdb
 C:\Users\6152777\Desktop\Visual Studio Start\DotNetCore\SampleDotNetCore\SampleDotNetCore\obj\Debug\net8.0\SampleDotNetCore.genruntimeconfig.cache
 C:\Users\6152777\Desktop\Visual Studio Start\DotNetCore\SampleDotNetCore\SampleDotNetCore\obj\Debug\net8.0\ref\SampleDotNetCore.dll
+C:\Users\6152777\Desktop\Visual Studio Start\DotNetCore\SampleDotNetCore\SampleDotNetCore\obj\Debug\net8.0\SampleDotNetCore.sourcelink.json
