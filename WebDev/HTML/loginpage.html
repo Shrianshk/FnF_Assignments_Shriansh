@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login Page</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 360px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 48%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .info-text {
+      text-align: center;
+      font-size: 14px;
+      margin: 5px 0;
+      color: #555;
+    }
+
+    #message {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      input {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="login-container" role="main">
+    <h2>Login Page</h2>
+    <form id="loginForm" aria-label="Login form" novalidate>
+      <label for="username" class="visually-hidden">Username</label>
+      <input type="text" id="username" name="username" placeholder="Username" required autocomplete="username" />
+
+      <label for="password" class="visually-hidden">Password</label>
+      <input type="password" id="password" name="password" placeholder="Password" required autocomplete="current-password" />
+
+      <div class="button-group">
+        <button type="button" id="signUpBtn" aria-label="Sign up">Sign Up</button>
+        <button type="button" id="signInBtn" aria-label="Sign in">Sign In</button>
+      </div>
+
+      <p class="info-text">Already have an account? Sign in</p>
+      <p class="info-text">Don't have an account? Sign up</p>
+    </form>
+    <p id="message" role="alert" aria-live="polite"></p>
+  </main>
+
+  <script>
+    // Hashing function using SHA-256
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(hashBuffer))
+    .map(b => b.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function showMessage(text, color) {
+  const message = document.getElementById("message");
+  message.textContent = text;
+  message.style.color = color;
+}
+
+document.getElementById("signUpBtn").addEventListener("click", async () => {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+
+  if (!username || !password) {
+    showMessage("Please enter both fields.", "red");
+    return;
+  }
+
+  if (localStorage.getItem(username)) {
+    showMessage("User already exists!", "orange");
+    return;
+  }
+
+  const hashedPassword = await hashPassword(password);
+  localStorage.setItem(username, hashedPassword);
+  showMessage("Sign up successful!", "green");
+});
+
+document.getElementById("signInBtn").addEventListener("click", async () => {
+  const username = document.getElementById("username").value.trim();
+  const password = document.getElementById("password").value;
+
+  if (!username || !password) {
+    showMessage("Please enter both fields.", "red");
+    return;
+  }
+
+  const storedHash = localStorage.getItem(username);
+  if (!storedHash) {
+    showMessage("User does not exist. Please sign up.", "orange");
+    return;
+  }
+
+  const inputHash = await hashPassword(password);
+  if (inputHash === storedHash) {
+    showMessage(`Welcome ${username}`, "green");
+  } else {
+    showMessage("Invalid credentials.", "red");
+  }
+});
+
+  </script>
+</body>
+</html>

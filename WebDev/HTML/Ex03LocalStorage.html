@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            border: 2px dashed blue;
+            width: 40%;
+            padding: 10px;
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function() {
+            let div = document.getElementById("dave");
+            // Show stored data on load
+            if(localStorage.getItem("userData")) {
+                div.innerText = localStorage.getItem("userData");
+            } else {
+                div.innerText = "No data found in local storage";
+            }
+
+            // Save button event
+            document.getElementById("save").addEventListener("click", function() {
+                let name = document.getElementById("txtName").value;
+                let email = document.getElementById("txtEmail").value;
+                let dob = document.getElementById("dob").value;
+                let msg = `name: ${name}, email: ${email}, dob: ${dob}`;
+                localStorage.setItem("userData", msg);
+                div.innerText = msg; // Update display immediately
+            });
+        });
+    </script>
+</head>
+<body>
+    <div>
+        <h2>User Inputs</h2>
+        <p>
+            <input type="text" id="txtName" placeholder="Enter your name" required>
+        </p>
+        <p>
+            <input type="email" id="txtEmail" placeholder="Enter your email" required>
+        </p>
+        <p>
+            <input type="date" id="dob" required>
+        </p>
+        <br>
+        <button id="save">Save Content</button>
+    </div>
+    <div>
+        <p><strong>Stored data:</strong></p>
+        <p id="dave"></p>
+    </div>
