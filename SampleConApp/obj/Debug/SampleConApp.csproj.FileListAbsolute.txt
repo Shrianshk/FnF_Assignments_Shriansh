@@ -1,0 +1,8 @@
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\obj\Debug\SampleConApp.csproj.AssemblyReference.cache
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\obj\Debug\SampleConApp.csproj.CoreCompileInputs.cache
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\bin\Debug\SampleConApp.exe.config
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\bin\Debug\SampleConApp.exe
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\bin\Debug\SampleConApp.pdb
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\obj\Debug\SampleConApp.exe
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\obj\Debug\SampleConApp.pdb
+C:\Users\6152777\Desktop\Visual Studio Start\ConsoleApp1\SampleConApp\obj\Debug\SampleConApp.exe.config
