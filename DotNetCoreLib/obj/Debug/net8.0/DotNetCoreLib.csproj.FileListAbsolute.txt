@@ -1,0 +1,14 @@
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\bin\Debug\net8.0\DotNetCoreLib.deps.json
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\bin\Debug\net8.0\DotNetCoreLib.runtimeconfig.json
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\bin\Debug\net8.0\DotNetCoreLib.dll
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\bin\Debug\net8.0\DotNetCoreLib.pdb
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.csproj.AssemblyReference.cache
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.AssemblyInfoInputs.cache
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.AssemblyInfo.cs
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.csproj.CoreCompileInputs.cache
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.dll
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\refint\DotNetCoreLib.dll
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.pdb
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\DotNetCoreLib.genruntimeconfig.cache
+C:\Users\6152777\Desktop\DbApproch\DotNetCoreLib\obj\Debug\net8.0\ref\DotNetCoreLib.dll
