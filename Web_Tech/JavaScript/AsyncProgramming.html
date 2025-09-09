@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fetchData(callback){
+            setTimeout(()=>{
+                const data = [
+                    {name : "John", age:30},
+                    {name : "Alex", age:35},
+                    {name : "James", age:20},
+                ]
+                callback(data)
+            },5000);
+        }
+        console.log("Calling Fetched data");
+        fetchData((result)=>{
+            console.log("Got result from fetchdata");
+            for(const item of result){
+                console.log(item);
+            }
+        })
+        console.log("End of program");
+    </script>
+    
+</body>
+</html>

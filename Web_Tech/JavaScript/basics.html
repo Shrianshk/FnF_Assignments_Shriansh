@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Data types in JavaScript are  number, string, boolean, object.
+        //Data types are dynamic in nature.
+        //let,const are var are used to declare the variable in JS(ES6)
+        //let and const was introduced in ES6 for better readability and powerfullness.
+       
+        // const num = 123;
+        // alert("The data type of num is " + typeof(num))
+        // alert(num)
+        // let data ="Sample text";
+        // alert("The data type of data is " + typeof(data))
+        // alert(data)
+        // data = true;
+        // alert("The data type of data is " + typeof(data))
+        // data = {name:"Shri",address:"Latur"}
+        // alert("The data type of data is "  + typeof(data))
+
+        //////////////// var vs let ////////////////////
+        //older JS code used to declare variables using var. var is still available as apart of backward compatability.
+        //let is scope based and very powerful compared to var
+     
+        // let  example = "some text";
+        // console.log(example);
+        // {
+        //     let example = "some more text";
+        //     console.log(example);
+        // }
+        // console.log(example);
+        // console.log( );
+        // ////////////////////
+        // var  exampl = "some text";
+        // console.log(exampl);
+        // {
+        //     var exampl = "some more text";
+        //     console.log(exampl);
+        // }
+        // console.log(exampl);
+
+
+        //if a variable is declared without assignment , then its called undefined.
+        let apple ;
+        if(apple == undefined){
+            console.log("apple is undefined");
+        }
+        else{
+            console.log(`the value of apple is : ${apple}`);
+        }
+        let  apple123 = "apple 123";
+        console.log("The value of apple123 is " + apple123 );
+
+        //null is the state when an object is not filled with data.we usulaly set null for variables which will be set with objects that come from a return type of function.
+        let obj = null;
+        if(obj ===null){ // === is triple checking
+            console.log("object is null");
+        }
+        else{
+            console.log(object);
+        }
+
+        ////////////////// == vs === ////////////////////////////
+        const value = 124;
+        if(value == "124"){
+            console.log("They are same");
+        }
+        if(value ==="124"){
+            console.log("they are same in datattype and value");
+        }
+        else{
+            console.log("Either type or value is mismatched");
+        }
+
+        ///////////////////// Conversion Example ///////////////////
+        // All inputs come to the app as strings . We can convert them to a number pareseInt and parseFloat functions.
+        let num1 = parseFloat(prompt("enter the first number"));
+        let num2 = parseFloat(prompt ("Enter the seconf number"));
+
+        console.log(`the data type of num1 is ${num1} and the data type of num2 is ${num2}`);
+        if(isNaN(num1) || isNaN(num2)){
+            console.log("U cannot perform operation on non-numeric data");
+        }
+        else{
+            const message = "The added value is " + (num1+num2) +" The substract value is " + (num1-num2) + " The multiply value is " + (num1*num2);
+        alert(message);
+        }
+        
+
+
+
+</script>
+</body>
+</html>

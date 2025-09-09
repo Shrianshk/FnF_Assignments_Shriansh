@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* body {
+            background: linear-gradient(135deg, #f8fafc 0%, #e0e7ff 100%);
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            background: #fff;
+            max-width: 350px;
+            margin: 60px auto;
+            padding: 32px 24px;
+            border-radius: 16px;
+            box-shadow: 0 6px 24px rgba(60, 72, 88, 0.12);
+        }
+        h2 {
+            text-align: center;
+            color: #4f46e5;
+            margin-bottom: 12px;
+        }
+        hr {
+            border: none;
+            border-top: 2px solid #e0e7ff;
+            margin-bottom: 24px;
+        }
+        p {
+            margin: 16px 0;
+            text-align: center;
+        }
+        input[type="number"], select {
+            width: 80%;
+            padding: 8px 10px;
+            border: 1px solid #c7d2fe;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.2s;
+        }
+        input[type="number"]:focus, select:focus {
+            border-color: #6366f1;
+            outline: none;
+        }
+        button {
+            background: #6366f1;
+            color: #fff;
+            border: none;
+            padding: 10px 28px;
+            border-radius: 8px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #4338ca;
+        }
+        #spDisplay {
+            display: inline-block;
+            min-width: 80px;
+            padding: 8px 0;
+            font-weight: bold;
+            color: #2563eb;
+            font-size: 1.1rem;
+        } */
+    </style>
+</head>
+<body>
+    <script>
+        //Html Elements can be programatically refered using DoM.
+        //Document object modl(DOM) is a tree structure of the elements within a HTML Document. They can be iteratedand traversed using Nodes,parents,children and siblings.
+        //HTML Comes with APIs to access the elements by their Id,ClassName,ElementName . ID must be unique to a document
+
+           //Html Elements can be programatically refered using DoM.
+        //Document object modl(DOM) is a tree structure of the elements within a HTML Document. They can be iteratedand traversed using Nodes,parents,children and siblings.
+        //HTML Comes with APIs to access the elements by their Id,ClassName,ElementName . ID must be unique to a document
+
+        // Calculation logic
+        // function getResult() {
+        //     const first = parseFloat(document.getElementById('firstvalue').value);
+        //     const second = parseFloat(document.getElementById('secondvalue').value);
+        //     const option = document.getElementById('slOptions').selectedIndex;
+        //     const display = document.getElementById('spDisplay');
+        //     let result = '';
+
+        //     if (isNaN(first) || isNaN(second)) {
+        //         display.textContent = "Please enter both numbers.";
+        //         return;
+        //     }
+
+        //     switch(option) {
+        //         case 1: // Add
+        //             result = first + second;
+        //             break;
+        //         case 2: // Subtract
+        //             result = first - second;
+        //             break;
+        //         case 3: // Multiply
+        //             result = first * second;
+        //             break;
+        //         case 4: // Divide
+        //             if (second === 0) {
+        //                 result = "Cannot divide by zero";
+        //             } else {
+        //                 result = first / second;
+        //             }
+        //             break;
+        //         default:
+        //             result = "Please select an operation.";
+        //     }
+        //     display.textContent = result;
+        // }
+
+        // // Attach event to button
+        // document.addEventListener('DOMContentLoaded', function() {
+        //     document.querySelector('button').onclick = getResult;
+        // });
+        function compute(v1,v2,option){
+            switch(option){
+                case "Add" : return v1+v2; break;
+                case "substract" : return v1-v2; break;
+                case "Multiply" : return v1*v2; break;
+                case "Divide" : return v1/v2; break;
+                    
+                default:
+                    return 0;
+
+            }
+        }
+        window.addEventListener("load",function(){
+            const btn =document.getElementById("getbtn");
+            if(btn ==undefined){
+                console.log("btn id is wrong");
+            }
+            btn.addEventListener("click", function(){
+                const v1 = parseFloat(document.getElementById('firstvalue').value);
+                const v2 = parseFloat(document.getElementById('secondvalue').value);
+                const option = document.getElementById('slOptions').value;
+                const result = compute(v1,v2,option);
+                const sp = document.getElementById('spDisplay');
+                sp.innerText =result;
+            })
+        })
+
+    </script>
+    <div>
+        <h2>Calc Program</h2>
+        <hr>
+        <p><input type="number" name="" id="firstvalue" placeholder="Enter the first number"></p>
+        <p><select name="" id="slOptions">
+            <option >----Select---</option>
+            <option >Add</option>
+            <option>substract</option>
+            <option>Multiply</option>
+            <option>Divide</option>
+        </select></p>
+        <p><input type="number" name="" id="secondvalue" placeholder="Enter the second number"></p>
+        <p><button onclick="" id="getbtn">Get Result</button></p>
+        <p><span id="spDisplay">Result is : </span></p>
+    </div>
+</body>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Promise is a Js object that handles async programming in a more understandable manner.
+        //Every promise object will have a callback function that takes 2args:
+        //resolve and reject . The resolve function will be called when the operation is completed without any issues.
+        //reject is called when there is an issue(Error).
+        //Every promise object shall have a function called then,which will be called when the code is successfull or completed.
+        function getallRecords(){
+            return new Promise(function(resolve,reject){
+                setTimeout(()=>{
+                const data = [
+                    {name : "John", age:30},
+                    {name : "Alex", age:35},
+                    {name : "James", age:20},
+                ]
+                if(data[0].name !="shriansh"){
+                    reject("Records are not matching");
+                }
+                else{
+                    resolve(data);
+                }
+            },5000)
+         })
+        }
+        function CallWithoutAsync(){
+            console.log("Into the Call function");
+            getallRecords().then( records =>{
+                 console.log(JSON.stringify(records));
+                 console.log("End of function call");
+            })
+            .catch(err => console.error(err))
+        }
+        async function InvokeFunc(){
+            console.log("Into invoke Func");
+            const records = await getAllRecords();
+            console.log(JSON.stringify(records));
+            console.log("After all the records are displayed ");
+        }
+
+        // InvokeFunc();
+        CallWithoutAsync()
+    </script>
+    </script>
+</body>
+</html>

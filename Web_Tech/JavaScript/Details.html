@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login Page</title>
+  <style>
+    /* Your existing CSS remains unchanged */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-container {
+      background-color: #ffffff;
+      padding: 40px 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 360px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+      font-size: 24px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      transition: border-color 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #007bff;
+      outline: none;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    button {
+      width: 48%;
+      padding: 12px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .info-text {
+      text-align: center;
+      font-size: 14px;
+      margin: 5px 0;
+      color: #555;
+    }
+
+    #message {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: 500;
+      font-size: 15px;
+    }
+
+    @media (max-width: 400px) {
+      .login-container {
+        padding: 30px 20px;
+      }
+
+      button {
+        font-size: 14px;
+        padding: 10px;
+      }
+
+      input {
+        font-size: 14px;
+        padding: 10px;
+      }
+    }
+  </style>
+  <script src="./detailsjs.js" defer></script>
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login Page</h2>
+    <form onsubmit="return false;">
+      <input type="text" id="username" name="username" placeholder="Username" autocomplete="username" />
+      <input type="password" id="password" name="password" placeholder="Password" autocomplete="current-password" />
+      <div class="button-group">
+        <button type="button" id="signupBtn">Sign Up</button>
+        <button type="button" id="signinBtn">Sign In</button>
+      </div>
+      <p class="info-text">Already have an account? Sign in</p>
+      <p class="info-text">Don't have an account? Sign up</p>
+    </form>
+    <p id="message"></p>
+  </div>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const signUpBtn = document.getElementById("signupBtn");
+    const signInBtn = document.getElementById("signinBtn");
+
+    signUpBtn.addEventListener("click", () => {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      signUp(username, password);
+    });
+
+    signInBtn.addEventListener("click", () => {
+      const username = document.getElementById("username").value.trim();
+      const password = document.getElementById("password").value;
+      signIn(username, password);
+    });
+  });
+
+  function showMessage(text, color) {
+  const message = document.getElementById("message");
+  message.textContent = text;
+  message.style.color = color;
+}
+</script>
+
+</body>
+</html>

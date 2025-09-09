@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encryption App</title>
+  <!-- <style>
+    body { font-family: Arial; padding: 20px; }
+    input, button { padding: 10px; margin: 5px; }
+    #output { margin-top: 20px; font-weight: bold; }
+  </style> -->
+</head>
+<body>
+  <h2>Encryption Console</h2>
+  <p>Enter a word thats to be encrypted</p>
+  <input type="text" id="userInput" placeholder="Enter the words " />
+  <button onclick="encryptWord()">Encrypt</button>
+  <div id="out"></div>
+
+  <script>
+    const encrypterSentence = "the quick brown fox jumps over the lazy dog";
+    const encrypterWords = encrypterSentence.split(" ");
+
+    function encryptWord() {
+      const input = document.getElementById("userInput").value.toLowerCase();
+      let encrypted = [];
+
+      for (let char of input) {
+        let found = false;
+        for (let i = 0; i < encrypterWords.length; i++) {
+          const word = encrypterWords[i];
+          const charIndex = word.indexOf(char);
+          if (charIndex !== -1) {
+            encrypted.push(`${i}${charIndex}`);
+            found = true;
+            break;
+          }
+        }
+        if (!found) {
+          encrypted.push(`-`); // If character not found
+        }
+      }
+
+      document.getElementById("out").innerText = `Encrypted: ${encrypted.join(" ")}`;
+    }
+  </script>
+</body>
+</html>
