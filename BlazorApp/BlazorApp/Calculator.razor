@@ -1,0 +1,57 @@
+﻿<h3>Calculator</h3>
+
+<div>
+    <input type="number" @bind="Number1" placeholder="Enter first number" />
+    <select @bind="Operation">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+    </select>
+    <input type="number" @bind="Number2" placeholder="Enter second number" />
+    <button @onclick="Calculate">Calculate</button>
+</div>
+
+@if (Result.HasValue)
+{
+    <p>Result: <strong>@Result</strong></p>
+}
+else if (!string.IsNullOrEmpty(ErrorMessage))
+{
+    <p style="color:red">@ErrorMessage</p>
+}
+
+@code {
+    private double Number1 { get; set; }
+    private double Number2 { get; set; }
+    private string Operation { get; set; } = "+";
+    private double? Result { get; set; }
+    private string ErrorMessage { get; set; }
+
+    private void Calculate()
+    {
+        ErrorMessage = string.Empty;
+        try
+        {
+            Result = Operation switch
+            {
+                "+" => Number1 + Number2,
+                "-" => Number1 - Number2,
+                "*" => Number1 * Number2,
+                "/" => Number2 != 0 ? Number1 / Number2 : throw new DivideByZeroException(),
+                _ => throw new InvalidOperationException("Invalid operation")
+            };
+        }
+        catch (Exception ex)
+        {
+            Result = null;
+            ErrorMessage = ex.Message;
+        }
+    }
+}
+
+
+
+
+
+
